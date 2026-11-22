@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guchha Flowers — Handcrafted Crochet Bouquets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon"><i class="fas fa-fan"></i></span>
+                <span class="logo-text">Guchha <span class="amp">Flowers</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#builder"><i class="fas fa-wand-magic-sparkles"></i> Custom Builder</a></li>
+                <li><a href="#bouquets"><i class="fas fa-store"></i> Ready Bouquets</a></li>
+                <li><a href="#about"><i class="fas fa-heart"></i> About</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#builder" class="btn btn-nav"><i class="fas fa-plus-circle"></i> Build Bouquet</a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="home">
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-content">
+            <p class="hero-tagline">100% Handcrafted with Love</p>
+            <h1 class="hero-title">
+                <span class="line1">Crochet Flowers</span>
+                <span class="line2">That Never Fade</span>
+            </h1>
+            <p class="hero-desc">Choose your favorite handmade crochet flowers, set the exact quantity for each stem, and let us weave them into your dream bouquet.</p>
+            <div class="hero-btns">
+                <a href="#builder" class="btn btn-primary"><i class="fas fa-wand-magic-sparkles"></i> Customize Your Bouquet</a>
+                <a href="#bouquets" class="btn btn-secondary"><i class="fas fa-eye"></i> View Pre-made Designs</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-num">500+</span>
+                    <span class="stat-label">Happy Orders</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">16+</span>
+                    <span class="stat-label">Flower Stems</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">∞</span>
+                    <span class="stat-label">Everlasting</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE CUSTOM BOUQUET BUILDER ==================== -->
+    <section class="section builder-section" id="builder">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag"><i class="fas fa-wand-magic-sparkles"></i> Custom Bouquet Studio</p>
+                <h2 class="section-title">Design Your Bouquet Stem by Stem</h2>
+                <p class="section-desc">Simply use the <strong>+</strong> and <strong>−</strong> buttons on any flower to choose your exact stem count. Your bouquet totals and live preview update instantly!</p>
+            </div>
+
+            <!-- Builder Top Control Bar: Category Filters & Search -->
+            <div class="builder-toolbar">
+                <div class="category-tabs">
+                    <button class="tab-btn active" data-tab="all"><i class="fas fa-border-all"></i> All Items</button>
+                    <button class="tab-btn" data-tab="flowers"><i class="fas fa-fan"></i> Main Blooms</button>
+                    <button class="tab-btn" data-tab="greenery"><i class="fas fa-leaf"></i> Leaves & Fillers</button>
+                    <button class="tab-btn" data-tab="extras"><i class="fas fa-gift"></i> Add-ons & Wrapping</button>
+                </div>
+                <div class="builder-summary-pill" id="builderPill">
+                    <span class="pill-stems"><i class="fas fa-seedling"></i> <strong id="pillStemCount">0</strong> stems</span>
+                    <span class="pill-divider">|</span>
+                    <span class="pill-total"><strong id="pillTotalAmount">Rs. 0</strong></span>
+                    <a href="#checkoutSection" class="pill-btn">Review Order <i class="fas fa-arrow-down"></i></a>
+                </div>
+            </div>
+
+            <div class="builder-workspace">
+                <!-- Left: Catalog of items with photo thumbnail + counter -->
+                <div class="catalog-container">
+                    
+                    <!-- Section: Main Blooms -->
+                    <div class="catalog-group" data-group="flowers">
+                        <div class="group-header">
+                            <h3><i class="fas fa-fan"></i> Main Blooms</h3>
+                            <span class="group-count">Hand-crocheted delicate petals</span>
+                        </div>
+                        <div class="items-grid">
+
+                            <!-- Item: Red Rose -->
+                            <div class="flower-card" data-id="red-rose" data-name="Red Rose" data-price="150" data-category="flowers" data-emoji="🌹">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 350;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                    <span class="card-badge">Bestseller</span>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">Red Rose</h4>
+                                    <p class="card-sub">Classic romantic crochet rose</p>
+                                    <div class="card-price">Rs. 150 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                            <!-- Item: Pink Rose -->
+                            <div class="flower-card" data-id="pink-rose" data-name="Pink Rose" data-price="150" data-category="flowers" data-emoji="🌸">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 330;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">Pink Rose</h4>
+                                    <p class="card-sub">Soft pastel blush rose</p>
+                                    <div class="card-price">Rs. 150 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                            <!-- Item: White Lily -->
+                            <div class="flower-card" data-id="white-lily" data-name="White Lily" data-price="200" data-category="flowers" data-emoji="🤍">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 60; --sat: 10%;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">White Lily</h4>
+                                    <p class="card-sub">Majestic open star bloom</p>
+                                    <div class="card-price">Rs. 200 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                            <!-- Item: Bright Sunflower -->
+                            <div class="flower-card" data-id="sunflower" data-name="Sunflower" data-price="180" data-category="flowers" data-emoji="🌻">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 45;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                    <span class="card-badge yellow">Popular</span>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">Sunflower</h4>
+                                    <p class="card-sub">Vibrant yellow crochet sunflower</p>
+                                    <div class="card-price">Rs. 180 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                            <!-- Item: Tulip -->
+                            <div class="flower-card" data-id="tulip" data-name="Tulip" data-price="130" data-category="flowers" data-emoji="🌷">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 15;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">Tulip</h4>
+                                    <p class="card-sub">Graceful Dutch tulip cup</p>
+                                    <div class="card-price">Rs. 130 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                            <!-- Item: Fluffy Peony -->
+                            <div class="flower-card" data-id="peony" data-name="Peony" data-price="220" data-category="flowers" data-emoji="🌺">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 320;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">Peony</h4>
+                                    <p class="card-sub">Layered multi-petal fluffy bloom</p>
+                                    <div class="card-price">Rs. 220 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                            <!-- Item: Orchid -->
+                            <div class="flower-card" data-id="orchid" data-name="Orchid" data-price="250" data-category="flowers" data-emoji="💜">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 280;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                    <span class="card-badge purple">Luxury</span>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">Orchid</h4>
+                                    <p class="card-sub">Exotic butterfly orchid stem</p>
+                                    <div class="card-price">Rs. 250 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                            <!-- Item: Hydrangea -->
+                            <div class="flower-card" data-id="hydrangea" data-name="Hydrangea" data-price="230" data-category="flowers" data-emoji="💙">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 220;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">Hydrangea</h4>
+                                    <p class="card-sub">Lush cluster of mini florets</p>
+                                    <div class="card-price">Rs. 230 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                            <!-- Item: Lavender -->
+                            <div class="flower-card" data-id="lavender" data-name="Lavender" data-price="120" data-category="flowers" data-emoji="🌾">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 265;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">Lavender</h4>
+                                    <p class="card-sub">Slender purple flower spike</p>
+                                    <div class="card-price">Rs. 120 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                            <!-- Item: Daisy -->
+                            <div class="flower-card" data-id="daisy" data-name="Daisy" data-price="110" data-category="flowers" data-emoji="🌼">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 50;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">Daisy</h4>
+                                    <p class="card-sub">Cheerful white & yellow petals</p>
+                                    <div class="card-price">Rs. 110 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                            <!-- Item: Dahlia -->
+                            <div class="flower-card" data-id="dahlia" data-name="Dahlia" data-price="200" data-category="flowers" data-emoji="🧡">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 25;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">Dahlia</h4>
+                                    <p class="card-sub">Intricate geometric crochet bloom</p>
+                                    <div class="card-price">Rs. 200 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                            <!-- Item: Carnation -->
+                            <div class="flower-card" data-id="carnation" data-name="Carnation" data-price="140" data-category="flowers" data-emoji="🏵️">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 345;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">Carnation</h4>
+                                    <p class="card-sub">Ruffled edges, timeless charm</p>
+                                    <div class="card-price">Rs. 140 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Section: Greenery & Fillers -->
+                    <div class="catalog-group" data-group="greenery">
+                        <div class="group-header">
+                            <h3><i class="fas fa-leaf"></i> Leaves & Greenery Fillers</h3>
+                            <span class="group-count">Essential stems to make bouquets look lush & full</span>
+                        </div>
+                        <div class="items-grid">
+
+                            <!-- Item: Eucalyptus -->
+                            <div class="flower-card" data-id="eucalyptus" data-name="Eucalyptus" data-price="80" data-category="greenery" data-emoji="🌿">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 155;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">Eucalyptus</h4>
+                                    <p class="card-sub">Silver-green round foliage</p>
+                                    <div class="card-price">Rs. 80 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                            <!-- Item: Baby's Breath -->
+                            <div class="flower-card" data-id="babys-breath" data-name="Baby's Breath" data-price="70" data-category="greenery" data-emoji="🤍">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 60; --sat: 5%;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">Baby's Breath</h4>
+                                    <p class="card-sub">Delicate white puff balls</p>
+                                    <div class="card-price">Rs. 70 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                            <!-- Item: Fern Leaf -->
+                            <div class="flower-card" data-id="fern-leaf" data-name="Fern Leaf" data-price="60" data-category="greenery" data-emoji="🌿">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 130;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">Fern Leaf</h4>
+                                    <p class="card-sub">Lace-like rich green frond</p>
+                                    <div class="card-price">Rs. 60 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                            <!-- Item: Dusty Miller -->
+                            <div class="flower-card" data-id="dusty-miller" data-name="Dusty Miller" data-price="80" data-category="greenery" data-emoji="🌱">
+                                <div class="card-thumb">
+                                    <div class="thumb-placeholder" style="--hue: 180; --sat: 15%;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                </div>
+                                <div class="card-details">
+                                    <h4 class="card-title">Dusty Miller</h4>
+                                    <p class="card-sub">Frosted velvet silver leaf</p>
+                                    <div class="card-price">Rs. 80 <span class="per-stem">/ stem</span></div>
+                                </div>
+                                <div class="card-stepper">
+                                    <button class="stepper-btn minus" aria-label="Decrease"><i class="fas fa-minus"></i></button>
+                                    <input type="number" class="stepper-input" value="0" min="0" max="99" aria-label="Quantity">
+                                    <button class="stepper-btn plus" aria-label="Increase"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="card-subtotal" style="display:none;">Rs. 0</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Section: Wrapping Styles & Add-ons -->
+                    <div class="catalog-group" data-group="extras">
+                        <div class="group-header">
+                            <h3><i class="fas fa-gift"></i> Wrapping Paper & Finishing Add-ons</h3>
+                            <span class="group-count">Select wrapping color and special gift touches</span>
+                        </div>
+
+                        <!-- Wrapping options -->
+                        <div class="wrapping-wrapper">
+                            <label class="section-label">Select Wrapping Style:</label>
+                            <div class="wrapping-pills">
+                                <label class="wrap-pill active">
+                                    <input type="radio" name="wrapStyle" value="Classic Kraft" data-price="0" checked>
+                                    <span class="color-dot" style="background: #c4a882;"></span>
+                                    <span class="wrap-title">Classic Kraft</span>
+                                    <span class="wrap-tag">Free</span>
+                                </label>
+                                <label class="wrap-pill">
+                                    <input type="radio" name="wrapStyle" value="Blush Pink" data-price="100">
+                                    <span class="color-dot" style="background: #f8c8d4;"></span>
+                                    <span class="wrap-title">Blush Pink</span>
+                                    <span class="wrap-tag">+Rs. 100</span>
+                                </label>
+                                <label class="wrap-pill">
+                                    <input type="radio" name="wrapStyle" value="Sage Green" data-price="100">
+                                    <span class="color-dot" style="background: #a8c5a0;"></span>
+                                    <span class="wrap-title">Sage Green</span>
+                                    <span class="wrap-tag">+Rs. 100</span>
+                                </label>
+                                <label class="wrap-pill">
+                                    <input type="radio" name="wrapStyle" value="Midnight Blue" data-price="100">
+                                    <span class="color-dot" style="background: #2c3e6b;"></span>
+                                    <span class="wrap-title">Midnight Blue</span>
+                                    <span class="wrap-tag">+Rs. 100</span>
+                                </label>
+                                <label class="wrap-pill">
+                                    <input type="radio" name="wrapStyle" value="Luxury Gold" data-price="200">
+                                    <span class="color-dot" style="background: #c5a44e;"></span>
+                                    <span class="wrap-title">Luxury Gold</span>
+                                    <span class="wrap-tag">+Rs. 200</span>
+                                </label>
+                                <label class="wrap-pill">
+                                    <input type="radio" name="wrapStyle" value="Pure White" data-price="100">
+                                    <span class="color-dot" style="background: #ffffff; border: 1px solid #ccc;"></span>
+                                    <span class="wrap-title">Pure White</span>
+                                    <span class="wrap-tag">+Rs. 100</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Add-ons grid -->
+                        <div class="addons-grid">
+                            <label class="addon-checkbox-card" data-name="Satin Ribbon Bow" data-price="100">
+                                <input type="checkbox">
+                                <div class="addon-icon"><i class="fas fa-ribbon"></i></div>
+                                <div class="addon-info">
+                                    <strong>Satin Ribbon Bow</strong>
+                                    <span>Lustrous satin ribbon tied around bouquet</span>
+                                </div>
+                                <span class="addon-price">+Rs. 100</span>
+                            </label>
+
+                            <label class="addon-checkbox-card" data-name="LED Fairy Lights" data-price="200">
+                                <input type="checkbox">
+                                <div class="addon-icon"><i class="fas fa-lightbulb"></i></div>
+                                <div class="addon-info">
+                                    <strong>LED Fairy Lights</strong>
+                                    <span>Twinkling warm micro lights woven into blooms</span>
+                                </div>
+                                <span class="addon-price">+Rs. 200</span>
+                            </label>
+
+                            <label class="addon-checkbox-card" data-name="Handwritten Card" data-price="80" id="cardAddonToggle">
+                                <input type="checkbox">
+                                <div class="addon-icon"><i class="fas fa-envelope-open-text"></i></div>
+                                <div class="addon-info">
+                                    <strong>Personalized Greeting Card</strong>
+                                    <span>Handwritten calligraphy message note</span>
+                                </div>
+                                <span class="addon-price">+Rs. 80</span>
+                            </label>
+
+                            <label class="addon-checkbox-card" data-name="Premium Gift Box" data-price="350">
+                                <input type="checkbox">
+                                <div class="addon-icon"><i class="fas fa-box-open"></i></div>
+                                <div class="addon-info">
+                                    <strong>Luxury Gift Box</strong>
+                                    <span>Rigid presentation box with clear viewing window</span>
+                                </div>
+                                <span class="addon-price">+Rs. 350</span>
+                            </label>
+                        </div>
+
+                        <div class="card-message-box" id="cardMessageBox" style="display:none;">
+                            <label for="cardMessageInput"><i class="fas fa-pen-nib"></i> Write your message for the card:</label>
+                            <textarea id="cardMessageInput" rows="2" placeholder="e.g. Happy Birthday Maya! With all my love..." maxlength="200"></textarea>
+                            <div class="char-count"><span id="charCount">0</span>/200 characters</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right: Sticky Live Bouquet Basket & Summary -->
+                <aside class="live-basket-sidebar">
+                    <div class="basket-card">
+                        <div class="basket-header">
+                            <div>
+                                <h3><i class="fas fa-shopping-basket"></i> Your Custom Bouquet</h3>
+                                <p class="basket-stem-sub"><span id="totalStemsCount">0</span> stems selected</p>
+                            </div>
+                            <button class="clear-basket-btn" id="clearBasketBtn" title="Reset all counts"><i class="fas fa-trash-can"></i></button>
+                        </div>
+
+                        <!-- Visual Bouquet Bubbles -->
+                        <div class="basket-visual-tray" id="basketVisualTray">
+                            <div class="basket-empty-state">
+                                <i class="fas fa-seedling"></i>
+                                <p>Click <strong>+</strong> on any flower to start assembling your custom bouquet!</p>
+                            </div>
+                        </div>
+
+                        <!-- Itemized list -->
+                        <div class="basket-items-scroll" id="basketItemsList">
+                            <!-- Injected dynamically -->
+                        </div>
+
+                        <!-- Pricing Breakdown -->
+                        <div class="basket-pricing">
+                            <div class="price-row">
+                                <span>Flower Stems (<span id="stemsBreakdownCount">0</span>):</span>
+                                <span id="stemsSubtotal">Rs. 0</span>
+                            </div>
+                            <div class="price-row">
+                                <span>Wrapping Style:</span>
+                                <span id="wrappingSubtotal">Free</span>
+                            </div>
+                            <div class="price-row">
+                                <span>Add-ons & Extras:</span>
+                                <span id="extrasSubtotal">Rs. 0</span>
+                            </div>
+                            <div class="price-row grand-total">
+                                <span>Total Price:</span>
+                                <span id="grandTotalPrice">Rs. 0</span>
+                            </div>
+                        </div>
+
+                        <a href="#checkoutSection" class="btn btn-primary btn-full checkout-trigger-btn" id="proceedToOrderBtn">
+                            Proceed to Order <i class="fas fa-arrow-down"></i>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- ==================== CHECKOUT & ORDER FORM ==================== -->
+            <div class="checkout-card" id="checkoutSection">
+                <div class="checkout-header">
+                    <div class="checkout-badge"><i class="fas fa-check"></i> Step 2 of 2</div>
+                    <h2>Complete Your Order Details</h2>
+                    <p>We'll receive your customized order at <strong>bipinadhikari95@gmail.com</strong> and connect with you immediately to confirm delivery.</p>
+                </div>
+
+                <form id="bouquetOrderForm" class="checkout-form">
+                    <div class="form-grid">
+                        <div class="field-group">
+                            <label for="orderName">Your Full Name <span class="req">*</span></label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="orderName" name="Customer Name" placeholder="e.g. Bipin Adhikari" required>
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="orderPhone">Phone Number <span class="req">*</span></label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="orderPhone" name="Phone Number" placeholder="e.g. 98XXXXXXXX" required>
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="orderEmail">Email Address</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="orderEmail" name="Email" placeholder="your@email.com">
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="orderCity">City / Area <span class="req">*</span></label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-city"></i>
+                                <input type="text" id="orderCity" name="City" placeholder="e.g. Kathmandu, Lalitpur, Pokhara" required>
+                            </div>
+                        </div>
+
+                        <div class="field-group full-span">
+                            <label for="orderAddress">Full Delivery Address <span class="req">*</span></label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-location-dot"></i>
+                                <input type="text" id="orderAddress" name="Delivery Address" placeholder="Street name, house number, landmark..." required>
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="orderDate">Preferred Delivery Date</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-calendar-day"></i>
+                                <input type="date" id="orderDate" name="Preferred Delivery Date">
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="orderPayment">Payment Method</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-wallet"></i>
+                                <select id="orderPayment" name="Payment Preference">
+                                    <option value="Cash on Delivery">Cash on Delivery (COD)</option>
+                                    <option value="eSewa / Khalti">eSewa / Khalti</option>
+                                    <option value="Bank Transfer">Bank Transfer</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field-group full-span">
+                            <label for="orderNotes">Special Instructions or Notes</label>
+                            <textarea id="orderNotes" name="Special Instructions" rows="3" placeholder="Color combinations, specific delivery times, or any custom wishes..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Live Order Summary Box inside checkout -->
+                    <div class="checkout-summary-box">
+                        <div class="summary-line">
+                            <span>Selected Bouquet Stems:</span>
+                            <strong id="formStemsSummary">0 stems</strong>
+                        </div>
+                        <div class="summary-line">
+                            <span>Total Payable:</span>
+                            <strong class="highlight-price" id="formPriceSummary">Rs. 0</strong>
+                        </div>
+                    </div>
+
+                    <div class="order-submit-actions">
+                        <button type="submit" class="btn btn-primary btn-submit-order" id="submitOrderBtn">
+                            <i class="fas fa-paper-plane"></i> Place Custom Order (Send to Gmail)
+                        </button>
+                        <button type="button" class="btn btn-whatsapp" id="whatsappOrderBtn">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp with Jeson
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== READY-MADE BOUQUETS SECTION ==================== -->
+    <section class="section bouquets-section" id="bouquets">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag"><i class="fas fa-store"></i> Ready to Gift</p>
+                <h2 class="section-title">Pre-Designed Crochet Bouquets</h2>
+                <p class="section-desc">Need inspiration? Choose one of our expertly curated signature crochet arrangements or recreate it with your own stem counts.</p>
+            </div>
+
+            <div class="bouquet-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="romantic">Romantic</button>
+                <button class="filter-btn" data-filter="celebration">Celebration</button>
+                <button class="filter-btn" data-filter="classic">Classic</button>
+            </div>
+
+            <div class="bouquets-grid">
+                <div class="bouquet-card" data-category="romantic">
+                    <div class="bouquet-img">
+                        <div class="img-placeholder" style="--hue: 340;">
+                            <i class="fas fa-image"></i>
+                            <span>Bouquet Photo</span>
+                        </div>
+                        <div class="bouquet-badge">Bestseller</div>
+                        <div class="bouquet-overlay">
+                            <button class="btn btn-sm btn-load-preset" data-preset="romantic-rose">Load Recipe in Builder</button>
+                        </div>
+                    </div>
+                    <div class="bouquet-info">
+                        <h3>Rose Garden Romance</h3>
+                        <p>5 Red Roses, 2 Pink Roses, 3 Baby's Breath & Eucalyptus</p>
+                        <div class="bouquet-footer">
+                            <span class="price">Rs. 1,500</span>
+                            <button class="btn btn-cart btn-load-preset" data-preset="romantic-rose"><i class="fas fa-wand-magic-sparkles"></i> Customize</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bouquet-card" data-category="celebration">
+                    <div class="bouquet-img">
+                        <div class="img-placeholder" style="--hue: 45;">
+                            <i class="fas fa-image"></i>
+                            <span>Bouquet Photo</span>
+                        </div>
+                        <div class="bouquet-overlay">
+                            <button class="btn btn-sm btn-load-preset" data-preset="sunlit-cheer">Load Recipe in Builder</button>
+                        </div>
+                    </div>
+                    <div class="bouquet-info">
+                        <h3>Sunlit Celebration</h3>
+                        <p>4 Sunflowers, 4 Daisies, 2 Fern Leaves</p>
+                        <div class="bouquet-footer">
+                            <span class="price">Rs. 1,280</span>
+                            <button class="btn btn-cart btn-load-preset" data-preset="sunlit-cheer"><i class="fas fa-wand-magic-sparkles"></i> Customize</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bouquet-card" data-category="romantic">
+                    <div class="bouquet-img">
+                        <div class="img-placeholder" style="--hue: 310;">
+                            <i class="fas fa-image"></i>
+                            <span>Bouquet Photo</span>
+                        </div>
+                        <div class="bouquet-badge sale">Popular</div>
+                        <div class="bouquet-overlay">
+                            <button class="btn btn-sm btn-load-preset" data-preset="pastel-peony">Load Recipe in Builder</button>
+                        </div>
+                    </div>
+                    <div class="bouquet-info">
+                        <h3>Pastel Peony Dream</h3>
+                        <p>3 Peonies, 3 Tulips, 2 Lavenders & Eucalyptus</p>
+                        <div class="bouquet-footer">
+                            <span class="price">Rs. 1,370</span>
+                            <button class="btn btn-cart btn-load-preset" data-preset="pastel-peony"><i class="fas fa-wand-magic-sparkles"></i> Customize</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bouquet-card" data-category="classic">
+                    <div class="bouquet-img">
+                        <div class="img-placeholder" style="--hue: 0; --sat: 0%;">
+                            <i class="fas fa-image"></i>
+                            <span>Bouquet Photo</span>
+                        </div>
+                        <div class="bouquet-overlay">
+                            <button class="btn btn-sm btn-load-preset" data-preset="peaceful-lily">Load Recipe in Builder</button>
+                        </div>
+                    </div>
+                    <div class="bouquet-info">
+                        <h3>Peaceful Whites</h3>
+                        <p>4 White Lilies, 3 Baby's Breath & 2 Fern Leaves</p>
+                        <div class="bouquet-footer">
+                            <span class="price">Rs. 1,130</span>
+                            <button class="btn btn-cart btn-load-preset" data-preset="peaceful-lily"><i class="fas fa-wand-magic-sparkles"></i> Customize</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="about-layout">
+                <div class="about-images">
+                    <div class="about-img-main">
+                        <div class="img-placeholder large" style="--hue: 140;">
+                            <i class="fas fa-image"></i>
+                            <span>Artisan at Work</span>
+                        </div>
+                    </div>
+                    <div class="about-experience">
+                        <span class="exp-num">100%</span>
+                        <span class="exp-text">Everlasting Stems</span>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <p class="section-tag"><i class="fas fa-heart"></i> Our Story</p>
+                    <h2 class="section-title">Crafted with Yarn, Built to Last Forever</h2>
+                    <p class="about-text">At <strong>Guchha Flowers</strong>, we believe flowers shouldn't have an expiration date. Every single flower in our shop is hand-crocheted petal by petal by <strong>Jeson Dangol</strong> and our artisan team.</p>
+                    <p class="about-text">Whether you're celebrating an anniversary, surprising a friend, or decorating your room, you can select the exact count of each flower variety to create an everlasting personal tribute.</p>
+
+                    <div class="about-values">
+                        <div class="value">
+                            <div class="value-icon"><i class="fas fa-hands-holding"></i></div>
+                            <div>
+                                <h4>Meticulous Craftsmanship</h4>
+                                <p>Each petal shaped and crocheted with high-grade durable yarn</p>
+                            </div>
+                        </div>
+                        <div class="value">
+                            <div class="value-icon"><i class="fas fa-infinity"></i></div>
+                            <div>
+                                <h4>Never Wilts or Dries</h4>
+                                <p>No water needed, no pollen allergies, forever vibrant</p>
+                            </div>
+                        </div>
+                        <div class="value">
+                            <div class="value-icon"><i class="fas fa-sliders"></i></div>
+                            <div>
+                                <h4>Total Custom Freedom</h4>
+                                <p>Exact stem counters let you design bouquets within your budget</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-info">
+                    <p class="section-tag"><i class="fas fa-paper-plane"></i> Get in Touch</p>
+                    <h2 class="section-title">Contact Jeson Dangol</h2>
+                    <p>Have a custom idea, bulk order, or question? Call or WhatsApp directly!</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <h4>Jeson Dangol</h4>
+                                <p>Founder & Master Artisan</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Call & WhatsApp</h4>
+                                <p><a href="tel:9761697040">9761697040</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Orders & Inquiries Email</h4>
+                                <p><a href="mailto:bipinadhikari95@gmail.com">bipinadhikari95@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-location-dot"></i>
+                            <div>
+                                <h4>Delivery Coverage</h4>
+                                <p>Kathmandu Valley & Nationwide Shipping Across Nepal</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://wa.me/9779761697040" target="_blank" class="social-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="tel:9761697040" class="social-link" title="Call Us"><i class="fas fa-phone"></i></a>
+                        <a href="mailto:bipinadhikari95@gmail.com" class="social-link" title="Email Us"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrap">
+                    <h3>Send a Quick Message</h3>
+                    <form class="contact-form" id="quickContactForm">
+                        <div class="form-group">
+                            <label for="cName">Your Name</label>
+                            <input type="text" id="cName" name="Name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cPhone">Phone Number</label>
+                            <input type="tel" id="cPhone" name="Phone" placeholder="98XXXXXXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cMessage">Message</label>
+                            <textarea id="cMessage" name="Message" rows="4" placeholder="How can Jeson help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            Send Message to Jeson <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-icon"><i class="fas fa-fan"></i></span>
+                        <span class="logo-text">Guchha <span class="amp">Flowers</span></span>
+                    </a>
+                    <p>Everlasting handmade crochet flower bouquets. Designed stem-by-stem by you, handcrafted with love by Jeson Dangol.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#builder">Custom Builder</a></li>
+                        <li><a href="#bouquets">Ready-made Bouquets</a></li>
+                        <li><a href="#about">About Our Craft</a></li>
+                        <li><a href="#contact">Contact Jeson</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 9761697040</li>
+                        <li><i class="fas fa-envelope"></i> bipinadhikari95@gmail.com</li>
+                        <li><i class="fas fa-truck"></i> Nepal Nationwide Delivery</li>
+                    </ul>
+                </div>
+                <div class="footer-action-box">
+                    <h4>Direct Order</h4>
+                    <p>Have an urgent request? Chat with Jeson directly on WhatsApp.</p>
+                    <a href="https://wa.me/9779761697040" target="_blank" class="btn btn-whatsapp btn-full">
+                        <i class="fab fa-whatsapp"></i> WhatsApp 9761697040
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Guchha Flowers. Handcrafted with love by Jeson Dangol. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== ORDER CONFIRMATION MODAL ==================== -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-content">
+            <div class="modal-icon"><i class="fas fa-circle-check"></i></div>
+            <h2>Order Submitted Successfully! 🎉</h2>
+            <p>Thank you! Your customized bouquet request has been delivered to <strong>bipinadhikari95@gmail.com</strong>.</p>
+            <div class="modal-summary-card" id="modalOrderSummary">
+                <!-- Injected via JS -->
+            </div>
+            <p class="modal-subtext">Jeson Dangol will call / WhatsApp you at your phone number to confirm final delivery details.</p>
+            <button class="btn btn-primary" id="closeModal">Awesome, Got It! <i class="fas fa-check"></i></button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Updated!</span>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
